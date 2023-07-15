@@ -17,13 +17,16 @@ export default function Uppercase(props) {
                 <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
                     <br></br>
-                    <textarea className="form-control my-5" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
                     <br></br>
                     <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button>
                 </div>
             </form>
             <h4>Number of letters : {text.length}</h4>
             <h4>Number of Words : {text.split(" ").length}</h4>
+            <div className='container'>
+                <p>Content - {text}</p>
+            </div>
         </div>
     )
 }
