@@ -4,6 +4,7 @@ export default function Uppercase(props) {
 
     const [text,Newtext] = useState("This was text")
     
+    
     function handleOnChange(event){
         Newtext(event.target.value)
     }
