@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 
 export default function Uppercase(props) {
 
+    const [changeColor, newColor] = useState({
+        backgroundColor:'black',
+        color:'white'
+    })
+
     const [text,Newtext] = useState("This was text")
     
     
@@ -12,8 +17,22 @@ export default function Uppercase(props) {
         var upperCaseText = text.toUpperCase()
         Newtext(upperCaseText)
     }
+    const toggleStyle = () =>{
+        if(changeColor.backgroundColor==='white'){
+            newColor({
+                backgroundColor:'black',
+                color:'white'
+            })
+        }
+        else{
+            newColor({
+                backgroundColor:'white',
+                color:'black'
+            })
+        }
+    }
     return (
-        <div>
+        <div style={changeColor}>
             <form>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
@@ -21,6 +40,7 @@ export default function Uppercase(props) {
                     <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
                     <br></br>
                     <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button>
+                    <button type="button" className="btn btn-primary" onClick={toggleStyle}>ToggleColor</button>
                 </div>
             </form>
             <h4>Number of letters : {text.length}</h4>
