@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 export default function Uppercase(props) {
 
     const [changeColor, newColor] = useState({
-        backgroundColor:'black',
-        color:'white'
+        backgroundColor:'white',
+        color:'black'
     })
 
     const [text,Newtext] = useState("This was text")
@@ -12,6 +12,10 @@ export default function Uppercase(props) {
     
     function handleOnChange(event){
         Newtext(event.target.value)
+    }
+    function convertToLowerCase(){
+        var tempText = text.toLowerCase();
+        Newtext(tempText);
     }
     function handleOnClick(){
         var upperCaseText = text.toUpperCase()
@@ -49,12 +53,13 @@ export default function Uppercase(props) {
                 <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
                     <br></br>
-                    <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="10"></textarea>
                     <br></br>
-                    <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button><br/>
-                    <button type="button" className="btn btn-primary" onClick={toggleStyle}>ToggleColor</button>
-                    <button type="button" className="btn btn-primary" onClick={copyText}>Copy Text</button>
-                    <button type="button" className="btn btn-primary" onClick={removeExtraSpaces}>Remove Extra Spaces</button>
+                    <button type="button" className="btn btn-primary my-2" onClick={handleOnClick}>Convert to Upper Case</button><br/>
+                    <button type="button" className="btn btn-primary my-2" onClick={toggleStyle}>ToggleColor</button><br/>
+                    <button type="button" className="btn btn-primary my-2" onClick={copyText}>Copy Text</button><br/>
+                    <button type="button" className="btn btn-primary my-2" onClick={removeExtraSpaces}>Remove Extra Spaces</button><br/>
+                    <button type="button" className="btn btn-primary my-2" onClick={convertToLowerCase}>Convert to Lower Case</button><br/>
                 </div>
             </form>
             <h4>Number of letters : {text.length}</h4>
