@@ -31,6 +31,13 @@ export default function Uppercase(props) {
             })
         }
     }
+
+    const copyText = () => {
+        var text = document.getElementById("exampleFormControlTextarea1")
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
     return (
         <div style={changeColor}>
             <form>
@@ -39,8 +46,9 @@ export default function Uppercase(props) {
                     <br></br>
                     <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
                     <br></br>
-                    <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button>
+                    <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button><br/>
                     <button type="button" className="btn btn-primary" onClick={toggleStyle}>ToggleColor</button>
+                    <button type="button" className="btn btn-primary" onClick={copyText}>Copy Text</button>
                 </div>
             </form>
             <h4>Number of letters : {text.length}</h4>
