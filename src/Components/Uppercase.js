@@ -38,6 +38,11 @@ export default function Uppercase(props) {
         navigator.clipboard.writeText(text.value);
     }
 
+    const removeExtraSpaces = () => {
+        const newText = text.split(/[ ]+/)
+        Newtext(newText.join(" "))
+    }
+
     return (
         <div style={changeColor}>
             <form>
@@ -49,6 +54,7 @@ export default function Uppercase(props) {
                     <button type="button" className="btn btn-primary" onClick={handleOnClick}>Convert to Upper Case</button><br/>
                     <button type="button" className="btn btn-primary" onClick={toggleStyle}>ToggleColor</button>
                     <button type="button" className="btn btn-primary" onClick={copyText}>Copy Text</button>
+                    <button type="button" className="btn btn-primary" onClick={removeExtraSpaces}>Remove Extra Spaces</button>
                 </div>
             </form>
             <h4>Number of letters : {text.length}</h4>
