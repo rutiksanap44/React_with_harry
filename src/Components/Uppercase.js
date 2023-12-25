@@ -3,35 +3,35 @@ import React, { useState } from 'react'
 export default function Uppercase(props) {
 
     const [changeColor, newColor] = useState({
-        backgroundColor:'white',
-        color:'black'
+        backgroundColor: 'white',
+        color: 'black'
     })
 
-    const [text,Newtext] = useState("This was text")
-    
-    
-    function handleOnChange(event){
+    const [text, Newtext] = useState("This was text")
+
+
+    function handleOnChange(event) {
         Newtext(event.target.value)
     }
-    function convertToLowerCase(){
+    function convertToLowerCase() {
         var tempText = text.toLowerCase();
         Newtext(tempText);
     }
-    function handleOnClick(){
+    function handleOnClick() {
         var upperCaseText = text.toUpperCase()
         Newtext(upperCaseText)
     }
-    const toggleStyle = () =>{
-        if(changeColor.backgroundColor==='white'){
+    const toggleStyle = () => {
+        if (changeColor.backgroundColor === 'white') {
             newColor({
-                backgroundColor:'black',
-                color:'white'
+                backgroundColor: 'black',
+                color: 'white'
             })
         }
-        else{
+        else {
             newColor({
-                backgroundColor:'white',
-                color:'black'
+                backgroundColor: 'white',
+                color: 'black'
             })
         }
     }
@@ -55,15 +55,15 @@ export default function Uppercase(props) {
                     <br></br>
                     <textarea className="form-control mx-2" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="10"></textarea>
                     <br></br>
-                    <button type="button" className="btn btn-primary my-2" onClick={handleOnClick}>Convert to Upper Case</button><br/>
-                    <button type="button" className="btn btn-primary my-2" onClick={toggleStyle}>ToggleColor</button><br/>
-                    <button type="button" className="btn btn-primary my-2" onClick={copyText}>Copy Text</button><br/>
-                    <button type="button" className="btn btn-primary my-2" onClick={removeExtraSpaces}>Remove Extra Spaces</button><br/>
-                    <button type="button" className="btn btn-primary my-2" onClick={convertToLowerCase}>Convert to Lower Case</button><br/>
+                    <button type="button" className="btn btn-primary my-2" onClick={handleOnClick}>Convert to Upper Case</button><br />
+                    <button type="button" className="btn btn-primary my-2" onClick={toggleStyle}>ToggleColor</button><br />
+                    <button type="button" className="btn btn-primary my-2" onClick={copyText}>Copy Text</button><br />
+                    <button type="button" className="btn btn-primary my-2" onClick={removeExtraSpaces}>Remove Extra Spaces</button><br />
+                    <button type="button" className="btn btn-primary my-2" onClick={convertToLowerCase}>Convert to Lower Case</button><br />
                 </div>
             </form>
-            <h4>Number of letters : {text.length}</h4>
-            <h4>Number of Words : {text.split(" ").length}</h4>
+            <h4>Number of letters : {text.length > 0 ? text.length : 0}</h4>
+            <h4>Number of Words : {text.length === 0 ? text.length : text.trim().split(/\s+/).length}</h4>
             <div className='container'>
                 <p>Content - {text}</p>
             </div>
